@@ -4,8 +4,32 @@
 
 # Note: The way that the robot is "facing" is irrelevant. "R" will always make the robot move to the right once, "L" will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.
 
-def judge_circle(moves)
+# set coordinates to (0, 0)
+# if x axis values change, modify value x
+# if y axis values change, modify value y
+# if coordinates still at (0, 0), return true
 
+def judge_circle(moves)
+  coordinates = [0, 0]
+
+  i = 0
+
+  until i == moves.length
+    case moves[i]
+    when "U"
+      coordinates[1] += 1
+    when "D"
+      coordinates[1] -= 1
+    when "L"
+      coordinates[0] -= 1
+    when "R"
+      coordinates[0] += 1
+    end
+
+    i += 1
+  end
+
+  coordinates == [0, 0]
 end
 
 example_one = "UD"
